@@ -1,0 +1,8 @@
+<h1>All Appointments</h1>
+<ul>
+  <% Appointment.all.each do |appointment| %>
+    <li>
+      <%= appointment.date %> -- <%= appointment.time.to_s.gsub("2000-01-01", "") %>
+    </li>
+  <% end %>
+</ul>

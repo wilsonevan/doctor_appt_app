@@ -1,0 +1,26 @@
+<h1><%= "Dr. #{@doctor.name}" %></h1>
+<h3>Specialty: <%= "#{@doctor.practice}" %></h1>
+<hr />
+<div class="page-container">
+  <div class="patient-list">
+    <h3>Current Patients:</h3>
+    <ul>
+      <% @doctor.users.each do |user| %>
+        <li>
+          <%= link_to user.full_name, user_path(user) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="appointments-list">
+    <h3>Upcoming Appointments:</h3>
+    <ul>
+      <% @doctor.appointments.each do |appointment| %>
+        <li>
+          <%= appointment.date %> -- <%= appointment.time.to_s.gsub("2000-01-01", "") %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to "Schedule Appointment", new_doctor_appointment_path(@doctor), class: "ui blue button inverted" %>
+</div>
