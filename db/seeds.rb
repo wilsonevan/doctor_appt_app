@@ -6,13 +6,15 @@
   )
 
   10.times do
-    user = User.create(
-      first_name: Faker::Movies::StarWars.character,
-      last_name: Faker::Superhero.power,
-      email: Faker::Internet.email,
-      password: "password",
-      password_confirmation: "password"
-    )
+    user = User.new
+    user.first_name = Faker::Movies::StarWars.character
+    user.last_name = Faker::Superhero.power
+    user.email = Faker::Internet.email
+    user.encrypted_password = '#$taawktljasktlw4aaglj'
+    user.password = "valid_password"
+    user.password_confirmation = "valid_password"
+    user.save!
+    
 
     Appointment.create(
       # role: roles.sample,
