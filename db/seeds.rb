@@ -1,13 +1,17 @@
 10.times do
   doctor = Doctor.create(
     name: Faker::Name.last_name,
-    practice: Faker::Demographic.demonym
+    practice: Faker::Demographic.demonym,
+    profile_pic: Faker::Avatar.image(slug = nil, size = '300x300', format = 'png', set = 'set1', bgset = nil)
   )
 
   10.times do
     user = User.create(
       first_name: Faker::Movies::StarWars.character,
-      last_name: Faker::Superhero.power
+      last_name: Faker::Superhero.power,
+      email: Faker::Internet.email,
+      password: "password",
+      password_confirmation: "password"
     )
 
     Appointment.create(
