@@ -17,8 +17,10 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
 
     if @doctor.save
-      redirect_to @doctor # => doctor_path(@doctor)
+      flash[:success] = "Doctor Created"
+      redirect_to root_path # => doctor_path(@doctor)
     else
+      flash[:error] = "Error #{@doctor.errors.full_messages.join("\n")}"
       render :new
     end
   end

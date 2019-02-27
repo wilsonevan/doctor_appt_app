@@ -16,8 +16,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user # => user_path(@user)
+      flash[:success] = "User Created"
+      redirect_to user_path(@user) # => user_path(@user)
     else
+      flash[:error] = "Error #{@user.errors.full_messages.join("\n")}"
       render :new
     end
   end

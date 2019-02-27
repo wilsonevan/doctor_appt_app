@@ -1,8 +1,15 @@
 <h1>Doctors Available</h1>
 <hr />
 <h2><%= @doctors.length <= 0 ? "No Doctors" : "" %></h2>
-<ul>
+
+<div class="ui list">
   <% @doctors.each do |doctor| %>
-    <li><%= link_to "Dr. #{doctor.name}", doctor %></li>
+    <div class="item">
+      <img class="ui avatar image" src=<%= doctor.profile_pic%> height="40"/>
+      <div class="content">
+        <%= link_to "Dr. #{doctor.name}", doctor, class: "header"%>
+        <div class="description">Specialty: <%= doctor.practice %></div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
