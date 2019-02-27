@@ -19,7 +19,7 @@ class AppointmentsController < ApplicationController
     @appointment = @doctor.appointments.new(appointment_params)
 
     if @appointment.save
-      redirect_to doctor_appointments_path(@doctor)
+      redirect_to doctor_path(@doctor)
     else
       render :new
     end

@@ -2,9 +2,9 @@ class Appointment < ApplicationRecord
   belongs_to :doctor
   belongs_to :user
 
-  def upcoming_appts(appointments)
-    ordered_array = appointments
-    binding.pry
+  def self.upcoming_appts
+    order(:time)  
+    order(:date)
   end
 
   def readable_appt
