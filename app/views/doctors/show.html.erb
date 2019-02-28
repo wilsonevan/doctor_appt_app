@@ -11,7 +11,7 @@
   </div>
   <div class="column">
     <br /><br /><br /><br />
-    <%= link_to "Schedule New Appointment", new_doctor_appointment_path(@doctor), class: "ui blue button inverted" %>
+    <%= link_to "Schedule New Appointment", new_doctor_appointment_path(@doctor), class: "ui blue button" %>
   </div>
 </div>    
 <hr />
@@ -54,7 +54,7 @@
         </tr>
       </thead>
   
-      <% @doctor.appointments.upcoming_appts.each do |appointment| %>
+      <% @doctor.appointments.order_appts.each do |appointment| %>
         <tbody>
           <tr class="center aligned">
             <% if appointment.date >= Date.today  %>

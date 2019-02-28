@@ -10,7 +10,7 @@
   </div>  
   <div class="right menu">  
     <% if current_user %>
-      <a class="item">Welcome, <%= current_user.full_name %></a>
+      <%= link_to current_user.full_name, edit_user_registration_path(@user),class: "item" %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "item" %>
     <% else %>
       <%= link_to 'Login', doctors_path, class: "item" %>
